@@ -1,0 +1,17 @@
+.sliderBack{
+    background-color: rgb(245, 199, 71);
+    height: 300px;
+    text-align: left;
+}
+
+.shopBtn{
+    width:100px;
+    border-radius:10px;
+    padding:5px 10px;
+    background-color: rgb(70, 70, 204);
+    color: white;
+}
+
+.shopBtn :hover{
+    background-color: rgb(102, 102, 196);
+}

@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import HeaderMain from './components/HeaderMain/HeaderMain';
+import SideBar from './components/SideBar/SideBar';
+import { createContext, useState } from 'react';
+
+export const UserContext = createContext();
 
 function App() {
+
+  const [drawer, setDrawer] = useState(false);
+
   return (
+    <UserContext.Provider value={[drawer, setDrawer]}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header></Header>
+      {/* <SideBar></SideBar> */}
+      <HeaderMain></HeaderMain>
     </div>
+    </UserContext.Provider >
   );
 }
 
