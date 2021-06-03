@@ -13,9 +13,6 @@ const HeaderMain = () => {
             .then(json => setSliderPic(json))
     }, [])
 
-    const color = ['green', 'lightblue', 'skyblue', 'lightyellow', 'lightorange'];
-
-
     console.log(sliderPic);
 
     return (
@@ -30,7 +27,7 @@ const HeaderMain = () => {
                                     <div style={{paddingTop:"50px", paddingLeft:"50px"}} className="col-md-3 align-items-center">
                                         <h5>{pic.title}</h5>
                                         <p>Price: $ {pic.price}</p>
-                                        <button className="shopBtn">Shop Now</button>
+                                        {/* <button className="shopBtn">Shop Now</button> */}
                                     </div>
 
                                     <div className="col-md-9">
@@ -55,5 +52,4 @@ const HeaderMain = () => {
 
 };
 
-// render(<ControlledCarousel />);
 export default HeaderMain;

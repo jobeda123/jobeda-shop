@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,19 +13,17 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { UserContext } from '../../App';
+import './Header.css';
 
 // these are for left drawer
 import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
+import Divider from '@material-ui/core/Divider'; // i will use it in the future
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 
+// these are for icon 
 import men from '../../images/men.png';
 import women from '../../images/women.png';
 import jewellery from '../../images/jewellery.png';
@@ -123,13 +121,18 @@ export default function Header() {
     };
 
     const pics = [
-        {name:women},
-        {name:men},
-        {name:jewellery},
-        {name:electronics},
+        { name: women },
+        { name: men },
+        { name: jewellery },
+        { name: electronics },
     ]
 
-    console.log(pics);
+
+    const drawerButton = text =>{
+        console.log(text);
+    }
+    
+
     const list = (anchor) => (
         <div
             className={clsx(classesBar.list, {
@@ -139,19 +142,21 @@ export default function Header() {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
+            <div className="d-flex">
+                <h4 style={{ paddingLeft: "20px", paddingTop: "20px" }}>Category</h4>
+                <button className="closeButton">X</button>
+            </div>
+
             <List>
-                
                 {['Women Clothing', "Men Clothing", "Jewellery", "Electronics"].map((text, index) => (
-                    <ListItem button key={text}>
-                        {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-                        <img style={{width:"30px", paddingRight: "10px"}} src={pics[index].name} alt="" />
-                        
+                    <ListItem button onClick={() =>drawerButton(text)} key={text}>
+                        <img style={{ width: "30px", paddingRight: "10px" }} src={pics[index].name} alt="" />
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
             </List>
 
-            {/* <Divider />
+            {/* <Divider /> // i will use it the future
 
             <List>
                 {['All mail', 'Trash', 'Spam'].map((text, index) => (
@@ -185,10 +190,10 @@ export default function Header() {
         handleMobileMenuClose();
     };
 
-    const handleDrawer = (event) => {
-        setDrawer(true)
-        console.log("Clicking....", drawer);
-    }
+    // const handleDrawer = (event) => {
+    //     setDrawer(true)
+    //     console.log("Clicking....", drawer);
+    // }
 
 
     const menuId = 'primary-search-account-menu';
@@ -236,13 +241,14 @@ export default function Header() {
         </Menu>
     );
 
-    const [drawer, setDrawer] = useContext(UserContext);
+    // const [drawer, setDrawer] = useContext(UserContext);
+
     return (
         <div className={classes.grow}>
             <AppBar position="static">
                 <Toolbar>
 
-                    <IconButton              // category bar will be added here
+                    <IconButton
                         edge="start"
                         className={classes.menuButton}
                         color="inherit"
@@ -267,7 +273,7 @@ export default function Header() {
                         <div className={classes.searchIcon}>
                             <SearchIcon />
                         </div>
-                        <InputBase
+                        <InputBase          // search input
                             placeholder="Search in Jobeda Shop"
                             classes={{
                                 root: classes.inputRoot,

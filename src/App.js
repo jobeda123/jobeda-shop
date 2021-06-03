@@ -1,7 +1,12 @@
 import './App.css';
-import Header from './components/Header/Header';
-import HeaderMain from './components/HeaderMain/HeaderMain';
 import { createContext, useState } from 'react';
+import HomePage from './pages/HomePage/HomePage';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 export const UserContext = createContext();
 
@@ -11,12 +16,29 @@ function App() {
 
   return (
     <UserContext.Provider value={[drawer, setDrawer]}>
-    <div className="App">
-      <Header></Header>
-      <HeaderMain></HeaderMain>
-    </div>
+      <div className="App">
+        <Router>
+          <Switch>
+
+            <Route path="/home">
+              <HomePage />
+            </Route>
+
+            <Route path="/womenClothing">
+              <HomePage />
+            </Route>
+
+            <Route path="/">
+              <HomePage />
+            </Route>
+            
+          </Switch>
+        </Router>
+      </div>
     </UserContext.Provider >
   );
 }
 
 export default App;
+
+
