@@ -7,6 +7,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import WomenClothingPage from './pages/WomenClothingPage/WomenClothingPage';
+import MenClothingPage from './pages/MenClothingPage/MenClothingPage';
+import ElectronicsPage from './pages/ElectronicsPage/ElectronicsPage';
+import JewelleryPage from './pages/JewelleryPage/JewelleryPage';
 
 export const UserContext = createContext();
 
@@ -25,7 +29,19 @@ function App() {
             </Route>
 
             <Route path="/womenClothing">
-              <HomePage />
+              <WomenClothingPage />
+            </Route>
+
+            <Route path="/menClothing">
+              <MenClothingPage />
+            </Route>
+
+            <Route path="/jewellery">
+              <JewelleryPage />
+            </Route>
+
+            <Route path="/electronics">
+              <ElectronicsPage />
             </Route>
 
             <Route path="/">

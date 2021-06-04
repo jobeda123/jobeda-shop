@@ -2,26 +2,25 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import ProductCard from '../../components/ProductCard/ProductCard';
 
-const WomenClothingPage = () => {
-    const [womenProduct, setWomenProduct] = useState([]);
+
+const MenClothingPage = () => {
+    const [menProduct, setMenProduct] = useState([]);
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products/category/women\'s%20clothing')
+        fetch('https://fakestoreapi.com/products/category/men\'s%20clothing')
             .then(res => res.json())
-            .then(data => setWomenProduct(data))
+            .then(data => setMenProduct(data))
     }, [])
-
-    // console.log(womenProduct);
 
     return (
         <div>
             <Header></Header>
             <section className="my-5 container">
-                <p className="sectionTitle">Women's Clothing</p>
+                <p className="sectionTitle">Men's Clothing</p>
                 <div className="sectionFlashSale">
                     <div className="row">
                         {
-                            womenProduct.map(card =>
+                            menProduct.map(card =>
                                 <ProductCard data={card} key={card.id}></ProductCard>)
                         }
                     </div>
@@ -31,4 +30,4 @@ const WomenClothingPage = () => {
     );
 };
 
-export default WomenClothingPage;
+export default MenClothingPage;

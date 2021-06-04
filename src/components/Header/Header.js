@@ -28,6 +28,7 @@ import men from '../../images/men.png';
 import women from '../../images/women.png';
 import jewellery from '../../images/jewellery.png';
 import electronics from '../../images/electronics.png';
+import { useHistory } from 'react-router-dom';
 
 
 const useStylesBar = makeStyles({
@@ -120,17 +121,20 @@ export default function Header() {
         setState({ ...state, [anchor]: open });
     };
 
-    const pics = [
-        { name: women },
-        { name: men },
-        { name: jewellery },
-        { name: electronics },
+    const categoryType = [
+        { name: women, funcName: 'womenClothing' },
+        { name: men, funcName: 'menClothing' },
+        { name: jewellery, funcName: 'jewellery'},
+        { name: electronics, funcName: 'electronics'},
     ]
 
+    const history = useHistory();
 
-    const drawerButton = text =>{
-        console.log(text);
+    const drawerButton = funcName =>{
+        console.log(funcName);
+        history.push(`/${funcName}`);
     }
+
     
 
     const list = (anchor) => (
@@ -149,8 +153,8 @@ export default function Header() {
 
             <List>
                 {['Women Clothing', "Men Clothing", "Jewellery", "Electronics"].map((text, index) => (
-                    <ListItem button onClick={() =>drawerButton(text)} key={text}>
-                        <img style={{ width: "30px", paddingRight: "10px" }} src={pics[index].name} alt="" />
+                    <ListItem button onClick={() =>drawerButton(categoryType[index].funcName)} key={index}>
+                        <img style={{ width: "30px", paddingRight: "10px" }} src={categoryType[index].name} alt="" />
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}

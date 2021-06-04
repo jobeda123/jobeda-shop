@@ -1,0 +1,40 @@
+.productCard{
+    width:250px;
+    background-color: white;
+    padding-top:5px;
+    float:left;
+}
+
+.productCard img{
+    width:190px;
+    height:180px;
+}
+
+.cardBtn{
+    background-color:white;
+    border-radius: 10px;
+    border: 2px solid blue;
+    padding:0px !important;
+    /* width: 120px; */
+    padding-left: 20px;
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.productCard img:hover{
+    cursor: pointer;
+}
+
+.flashSalePriceDecrease{
+    font-size:18px;
+    margin: 0px 2px;
+    /* color: rgb(206, 35, 35); */
+    text-decoration: line-through;
+}
+
+.flashSalePrice{
+    font-size:20px;
+    margin: 0px 2px;
+    color: orange;
+    font-weight: bold;
+}
