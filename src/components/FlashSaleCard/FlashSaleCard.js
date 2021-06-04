@@ -1,5 +1,7 @@
 import React from 'react';
 import './FlashSaleCard.css';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import IconButton from '@material-ui/core/IconButton';
 
 const ProductCard = (props) => {
     const { title, image, price, id } = props.data;
@@ -17,7 +19,7 @@ const ProductCard = (props) => {
                     <p className="flashSalePriceDecrease px-4 pt-1">${price}</p>
                     <p className="flashSalePrice px-4">${newPrice}</p>
                 </div>
-                <button className="cardBtn">Add To Card</button>
+                <button className="cardBtn"> Add To Card</button>
             </div>
         </div>
 
@@ -25,3 +27,5 @@ const ProductCard = (props) => {
 };
 
 export default ProductCard;
+
+//<IconButton><ShoppingCartIcon /></IconButton>

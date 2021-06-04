@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import './MostPopularProduct.css';
+import loading from '../../images/loading.gif';
+
 
 const MostPopularProduct = () => {
     const [mostPopularProduct, setMostPopularProduct] = useState([]);
@@ -16,7 +18,7 @@ const MostPopularProduct = () => {
     return (
         <section className="my-5 container">
             <p className="sectionTitle">Most Popular Products</p>
-            <div className="sectionFlashSale">
+            { mostPopularProduct.length? <div className="sectionFlashSale">
                 <div className="row">
                     {
                         mostPopularProduct.map(card =>
@@ -24,6 +26,7 @@ const MostPopularProduct = () => {
                     }
                 </div>
             </div>
+            : <img style={{width:"150px"}} src={loading} alt="" /> }
         </section>
     );
 };

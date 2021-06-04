@@ -15,10 +15,10 @@
     border-radius: 10px;
     border: 2px solid blue;
     padding:0px !important;
-    /* width: 120px; */
-    padding-left: 20px;
+    width: 120px;
+    /* padding-left: 20px; */
     margin: 10px 0px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .productCard img:hover{

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import ProductCard from '../../components/ProductCard/ProductCard';
+import loading from '../../images/loading.gif';
 
 
 const JewelleryPage = () => {
@@ -17,7 +18,7 @@ const JewelleryPage = () => {
             <Header></Header>
             <section className="my-5 container">
                 <p className="sectionTitle">Jewellery</p>
-                <div className="sectionFlashSale">
+                { jewelleryProduct.length? <div className="sectionFlashSale">
                     <div className="row">
                         {
                             jewelleryProduct.map(card =>
@@ -25,6 +26,7 @@ const JewelleryPage = () => {
                         }
                     </div>
                 </div>
+                : <img style={{width:"150px"}} src={loading} alt="" /> }
             </section>
         </div>
     );

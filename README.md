@@ -44,3 +44,5 @@ Copy & Paste 2 link in the index.html of your project so that follow  the below 
 1. With the help of this link : https://reactrouter.com/web/guides/quick-start
 2. npm install react-router-dom
 
+# Fake API
+1. Link: https://fakestoreapi.com/docs

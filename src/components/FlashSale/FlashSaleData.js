@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import FlashSaleCard from '../../components/FlashSaleCard/FlashSaleCard';
 import './FlashSaleData.css';
+import loading from '../../images/loading.gif';
 
 
 const FlashSale = () => {
@@ -18,14 +19,17 @@ const FlashSale = () => {
     return (
         <section className="my-5 container">
             <p className="sectionTitle">Flash Sale</p>
-            <div className="sectionFlashSale">
-                <div className="row">
-                    {
-                        flashSaleData.map(card =>
-                            <FlashSaleCard data={card} key={card.id}></FlashSaleCard>)
-                    }
+            {
+                flashSaleData.length ? <div className="sectionFlashSale">
+                    <div className="row">
+                        {
+                            flashSaleData.map(card =>
+                                <FlashSaleCard data={card} key={card.id}></FlashSaleCard>)
+                        }
+                    </div>
                 </div>
-            </div>
+                : <img style={{width:"150px"}} src={loading} alt="" />
+            }
         </section>
     );
 };

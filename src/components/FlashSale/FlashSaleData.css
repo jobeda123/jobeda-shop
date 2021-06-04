@@ -15,5 +15,6 @@
 
 .sectionTitle{
     font-size:2rem;
-    text-align:left;
+    text-align:center;
+    margin: 20px 0px;
 }
